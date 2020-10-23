@@ -1,16 +1,18 @@
 const pm2 = require('pm2');
+require('dotenv').config()
+// const { mailNoti } = require('./mail');
+const { slackNoti } = require('./slack');
+// const { teleNoti } = require('./tele');
+// const { textNoti } = require('./text');
 
-// like this method better to get some information
-// pm2.connect(function() {
-//   pm2.launchBus(function(err, bus) {
-//     bus.on('process:event', function(data) {
-//       if (data.event === "exit") {
-//         console.log(data.process.axm_options);
-//         console.log(data.process.axm_options);
-//       }
-//     });
-//   });
-// });
+// getting perms
+const emailPerms = process.env.MAIL,
+slacPerms = process.env.SLACK,
+telePerm = process.env.TELEGRAM,
+textPerm = process.env.TEXT
+
+// setting perms 
+
 
 pm2.launchBus(function(err, bus) {
     bus.on('log:err', function(e) {
@@ -20,6 +22,19 @@ pm2.launchBus(function(err, bus) {
 
       let message = {subject: subject, name: name, body: body}
       console.log(message);
+      
+      if (slacPerms == 1) {
+        slackNoti(message)
+      }
+      
+      
+      
+      
+      
+      
+      
 
     });
 });
+
+
