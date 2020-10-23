@@ -1,0 +1,22 @@
+{
+  "name": "pm2-notifier",
+  "version": "1.0.0",
+  "description": "A single package that will send notifications via any message that we can come up with",
+  "main": "notifier.js",
+  "scripts": {
+    "test": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamrpostjr/pm2-notifier.git"
+  },
+  "author": "Adam Post",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adamrpostjr/pm2-notifier/issues"
+  },
+  "homepage": "https://github.com/adamrpostjr/pm2-notifier#readme",
+  "dependencies": {
+    "pm2": "^4.5.0"
+  }
+}
